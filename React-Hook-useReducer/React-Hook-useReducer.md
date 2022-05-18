@@ -5,3 +5,27 @@ When we want to create and maintain dynamic state values within our React applic
 The **useReducer** hook.
 
 When should we use the useReducer hook? We can use this hook when **maintaining state values with complex data structures**.
+
+![Ummm](ummm.jpg)
+
+So for example, if your state value looks something like this:
+```js
+const user = {
+  name: "Timothy",
+  skills: ["javascript", "React", "NextJS", "Redux"],
+  hobbies: [
+    {name: "Piano", desc: "Played the piano for about 8 years"},
+    {name: "Netflix", desc: "Favorite show is How I met your Mother"}
+  ]
+}
+```
+
+Then you should probably use the `useReducer` hook. Let's dive into it then.
+<br><br>
+## Da fundahmentals
+
+Before we start coding with the useReducer hook, we must know three very important concepts to fully understand this hook.
+
+**Dispatch, Action,** and **Reducer**.
+
+<br>First, let's look at **Reducer**.
