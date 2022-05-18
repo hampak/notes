@@ -78,4 +78,4 @@ export default function Home(props) {
 
 Using the `getServerSideProps` function allows use to return prop(s). We can use the prop(s) in our page by simply passing them as props (just like in a basic React app). Also, let's not forget to use optional chaining on `veggies.length` and `veggies.map` to prevent errors.
 
-Now when we restart the server and go to the page. Boom! Problem Solved!
+Now when we restart the server and go to the page. Boom! Problem solved! No more loading screen.
