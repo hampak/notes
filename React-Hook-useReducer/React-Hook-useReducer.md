@@ -76,7 +76,7 @@ const shoppingApp = () => {
 }
 ```
 
-![example](example.gif)
+![example](example1.gif)
 
 When we click on the `Add to cart` button, the state changes successfully.
 
@@ -88,7 +88,7 @@ Now, let's break down the code.
 const [state, dispatch] = useReducer(reducer, initialState)
 ```
 
-In the code above, we can see that the useReducer hook returns an array which holds the newly created state value and the `dispatch` function. Also, the useReducer hook itself accepts two parameters. The first one is the reducer function and the second one is the initial value of the set state. It will be confusing at first, but lets try to let this syntax sink in.
+In the code above, we can see that the useReducer hook returns an array which holds the newly created state value and the `dispatch` function. Also, the useReducer hook itself accepts two parameters. The first one is the reducer function and the second one is the initial value of the set state. It will be confusing at first, but lets try to get this syntax to sink in.
 
 So in our code above,
 
@@ -97,3 +97,16 @@ const [items, dispatch] = useReducer(reducer, 0)
 ```
 
 We have set (and named) our state as `items` and set its initial value to 0.
+
+<br>Then we made the `reducer()` outside of our component.
+
+```jsx
+const reducer = (state, action) => {
+  switch(action.type) {
+    case "addItem":
+      return state + 1
+    default:
+      return state
+  }
+}
+```
