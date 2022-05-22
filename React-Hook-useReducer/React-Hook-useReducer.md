@@ -69,7 +69,7 @@ const shoppingApp = () => {
       ...
       
       <button onClick={() => {
-        dispatch({type: "addItem", payload: items})
+        dispatch({type: "addItem"})
       }}>Add to cart</button>
     </div>
   )
@@ -110,3 +110,20 @@ const reducer = (state, action) => {
   }
 }
 ```
+
+We passed two parameters for this function. The `state` and the `action`. Also, we used the `switch` statement to handle our logic. This is part of our code where we tell the app **what** to do with the state.
+
+<br>Finally, we added the `action.type` in our button.
+```jsx
+<button onClick={() => dispatch({type: "addItem"})}>Add to cart</button>
+```
+
+Now let's look at how to use the `useReducer` hook to maintain and change state values that have a more complex data structure.
+<br><br>
+## Using the `useReducer` hook for complex state value
+
+In the beginning of this post, I stated that we should use the `useReducer` hook when we have to **maintain state values with complex data structures**. Let's dive right into then.
+
+First, I want you to see the end result of the project we will be building (to explain this concept). This is a simple app where we can type in names of vegetables and fruits. When we click on the `Add Item` button, it will add that vegetable/fruit to the list below. When we click on the `Delete` button, it will erase the item from the list. There's also a `Items` counter which will increment and decrement according to the number of items on the list. Finally, when we click on the name of the item, the `textDecoration` value will change. Refer to the gif below.
+
+![another example](example2.gif)
