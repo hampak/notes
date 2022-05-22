@@ -122,8 +122,25 @@ Now let's look at how to use the `useReducer` hook to maintain and change state 
 <br><br>
 ## Using the `useReducer` hook for complex state value
 
-In the beginning of this post, I stated that we should use the `useReducer` hook when we have to **maintain state values with complex data structures**. Let's dive right into then.
+In the beginning of this post, I stated that we should use the `useReducer` hook when we have to **maintain state values with complex data structures**. Let's dive right into it.
 
-First, I want you to see the end result of the project we will be building (to explain this concept). This is a simple app where we can type in names of vegetables and fruits. When we click on the `Add Item` button, it will add that vegetable/fruit to the list below. When we click on the `Delete` button, it will erase the item from the list. There's also a `Items` counter which will increment and decrement according to the number of items on the list. Finally, when we click on the name of the item, the `textDecoration` value will change. Refer to the gif below.
+First, I want you to see the end result of the project we will be building (to explain this concept). This is a simple app where we can type in names of vegetables and fruits. When we click on the `Add Item` button, it will add that vegetable/fruit to the list below. When we click on the `Delete` button, it will erase the item from the list. There's also a `Items` counter which will increment and decrement according to the number of items on the list. Finally, when we click on the name of the item, the styles for the `textDecoration` value will change. Refer to the gif below.
 
 ![another example](example2.gif)
+
+To show use the **complex data structure** I've been talking about, this is our initial value of our state.
+
+```js
+const initialState = {
+  count: 1, // This will start the counter from 1 as I've already added "tomato" on the list
+  items: [
+    { // adding in an example of an item to show you the data structure
+      id: nanoid(5),
+      name: "Tomato",
+      isChecked: false
+    }
+  ]
+};
+```
+
+This state is somewhat more complex than the one we looked at above. Now let's look at the entire code.
