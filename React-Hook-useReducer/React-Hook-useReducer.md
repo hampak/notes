@@ -143,4 +143,104 @@ const initialState = {
 };
 ```
 
-This state is somewhat more complex than the one we looked at above. Now let's look at the entire code.
+<br><br>This state is somewhat more complex than the one we looked at above. Now let's look at the entire code.
+
+```jsx
+// App.js
+
+import {useState, useReducer} from "react";
+import {nanoid} from "nanoid";
+import Item from "./Item.jsx";
+
+const reducer = (state, action) => {
+  switch(action.type) {
+    case "addItem":
+      const name = action.payload.name;
+      const newItem = {
+        id: nanoid(5), // limiting the characters to 5
+        name,
+        isChecked: false // setting default checked value to "false"
+      }
+      return {
+        count: state.count + 1,
+        items: [...state.items, newItem]
+      }
+    case "deleteItem":
+      return {
+        count: state.count - 1,
+        items: state.items.filter((item) => item.id !== action.payload.id)
+      };
+    case "checkItem":
+      return {
+        count: state.count,
+        items: state.items.map((item) => {
+          if (item.id === action.payload.id) {
+            return { ...item, isChecked: !item.isChecked };
+          }
+          return item;
+        })
+      };
+    default:
+      return state;
+  }
+}
+
+const initialState = {
+  count: 0,
+  items: []
+}
+
+const ShoppingList = () => {
+
+const [name, setName] = useState("")
+const [itemsInfo, dispatch] = useReducer(reducer, initialState)
+
+  return (
+    <div>
+      <h1>Veggies and Fruits</h1>
+      <p>Items: {itemsInfo.count}</p>
+      <input 
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Type in either veggie or fruit"
+        type="text"
+      />
+      <button onClick={() => dispatch({type: "addItem", payload: {name}})}>Add Item</button>
+      {itemsInfo.items.map((item) => (
+        <Item 
+          name={item.name}
+          key={item.id}
+          dispatch={dispatch}
+          id={item.id}
+          isChecked={item.isChecked}
+        />
+      ))}
+    </div>
+  )
+}
+```
+
+```jsx
+// Item.jsx
+
+const Item = ({ name, dispatch, id, isChecked }) => {
+  return (
+    <div>
+      <span
+        onClick={() => dispatch({ type: "checkItem", payload: { id } })}
+        style={{
+          textDecoration: isChecked ? "line-through" : "none",
+          color: isChecked ? "gray" : "black"
+        }}
+      >
+        {name}
+      </span>
+      <button onClick={() => dispatch({ type: "deleteItem", payload: { id } })}>
+        Delete
+      </button>
+    </div>
+  );
+};
+
+export default Item;
+```
