@@ -244,3 +244,43 @@ const Item = ({ name, dispatch, id, isChecked }) => {
 
 export default Item;
 ```
+
+<br>The code is pretty straightforward. Let's break down some important parts of the code.
+
+<br>Here, we can see that **passing the `dispatch` as props is actually possible**. The component which receives the `dispatch` prop can use it.
+
+```jsx
+<Item
+  name={item.name}
+  key={item.id}
+  dispatch={dispatch}
+  id={item.id}
+  isChecked={item.isChecked}
+/>
+```
+
+<br>In the return state (in our reducer function), the data structure we return should be that of the `initialState` value (or whatever state value you set).
+
+In the example above, the `initialState` value is this:
+
+```js
+const initialState = {
+  count: 0,
+  items: []
+}
+```
+
+The data structure of the return statement in our reducer function should follow the data structure pattern of the `initialValue`. So like this:
+
+```jsx
+return {
+  count: state.count + 1,
+  items: [...state.items, newItem]
+}
+```
+
+Other parts of the code seem self-explanatory to me. The biggest difference of this project and the simple counter app we looked at first is **how many things are being changed in the state?** The simple counter app uses a state value so simple that it can be maintained with the `useState` hook. However, the "Veggies and Fruits" app is different. A lot of things change in the state value. The count, the name(of the veggie/fruit), the id and so on...
+
+Let's wrap things up. In this post, we learned about the `useReducer` hook. We learned **when** to use this hook and the difference between it compared to the `useState` hook. We also studied three important concepts: dispatch, action and reducer. We also coded up a couple of projects using the `useReducer` hook and looked into how it can be used to handle complex state logic with multiple sub-values.
+
+I think this is enough for a "useReducer" post. I'll probably make another post on the `useReducer` hook. But that's for another day when I learn more about it. :wave:
