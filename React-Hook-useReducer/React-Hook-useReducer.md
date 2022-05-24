@@ -279,8 +279,10 @@ return {
 }
 ```
 
-Other parts of the code seem self-explanatory to me. The biggest difference of this project and the simple counter app we looked at first is **how many things are being changed in the state?** The simple counter app uses a state value so simple that it can be maintained with the `useState` hook. However, the "Veggies and Fruits" app is different. A lot of things change in the state value. The count, the name(of the veggie/fruit), the id and so on...
+Other parts of the code seem self-explanatory. The biggest difference of this project and the simple counter app we looked at first is **how many things are being changed in the state?** The simple counter app uses a state value so simple that it can be maintained with the `useState` hook. However, the "Veggies and Fruits" app is different. A lot of things change in the state value. The count, the name(of the veggie/fruit), the id and so on...
 
 Let's wrap things up. In this post, we learned about the `useReducer` hook. We learned **when** to use this hook and the difference between it compared to the `useState` hook. We also studied three important concepts: dispatch, action and reducer. We also coded up a couple of projects using the `useReducer` hook and looked into how it can be used to handle complex state logic with multiple sub-values.
 
 I think this is enough for a "useReducer" post. I'll probably make another post on the `useReducer` hook. But that's for another day when I learn more about it. :wave:
+
+![LOL](eyeingComplexStateLogic.jpg)
