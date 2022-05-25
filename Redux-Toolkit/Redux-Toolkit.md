@@ -12,11 +12,15 @@ To solve this, **REDUX** was created. Simply stated, Redux is a state management
 
 In this post, we will be looking into **Redux**, more specifically, **Redux Toolkit**. Redux toolkit is a "toolset" that helps Redux development to be more developer friendly. Also, Redux officially recommends using Redux toolkit in their documentation.
 
+# How does Redux work?
+
+// add content
+
 # Coding with Redux Toolkit
 
 Let's make a simple counter app to learn the basics. Here is our component structure:
 
-![structure](structure.png)
+![project structure](projectStructure.png)
 
 <br>Install the following npm packages
 
@@ -38,3 +42,17 @@ export default configureStore({
 ```
 
 Basically, in this file we're going to pass in the `reducer`. If you don't know what reducer is, refer to [this post](../React-Hook-useReducer/React-Hook-useReducer.md). The action(in this case - incrementing and decrementing the count) is passed to the reducer. We're going to make another file in the same folder named `counter.js`. In this file, we're going to code the logic of our action and export it. This is going to be imported from `store.js`. Finally, it's going to be passed on to the root of our project. It's no use just explaining this in text. We'll look deeper into this later on. For now, let's just remember to create a "store" file. 
+
+<br>Next, we're going to import few things in our `index.js` file.
+```js
+// src/index.js
+
+...
+import store from "./redux/store";
+import {Provider} from "react-redux";
+
+...
+  <Provider store={store}> // Wrap our project with "Provider"
+    <App />
+  </Provider>
+```
