@@ -20,6 +20,11 @@ Instead of passing our props down, we can use Redux. When we use Redux, we store
 
 ![simple redux project structure](dlkj8askDkjd24.png)
 
+Let's say that `component4.jsx` is a component of a increment button. When we click on that button, instead of mutating the state variable inside `component4.jsx`, the component will **call a function** which will increment the count in `store.js`.
+
+Simply stated, instead of changing the state variable within a component, the component will call a function which will change a state variable stored **outside** of the application.
+
+
 # Coding with Redux Toolkit
 
 Let's make a simple counter app to learn the basics. Here is our component structure:
