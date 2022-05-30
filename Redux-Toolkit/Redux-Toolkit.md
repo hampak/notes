@@ -14,7 +14,11 @@ In this post, we will be looking into **Redux**, more specifically, **Redux Tool
 
 # How does Redux work?
 
-// add content
+As I've mentioned above, we use Redux to solve the issue with passing props down to components nested deeply within our app. This is called **prop drilling*.
+
+Instead of passing our props down, we can use Redux. When we use Redux, we store variables **outside** of our top-level component. We can store our variables in a file named `store.js`. This will enable components (no matter how deeply nested they are) to use that variable.
+
+![simple redux project structure](dlkj8askDkjd24.png)
 
 # Coding with Redux Toolkit
 
